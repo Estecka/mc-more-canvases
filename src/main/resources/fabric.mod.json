@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "morecanvases",
+	"version": "${version}",
+
+	"name": "More Canvases",
+	"description": "Adds blank paintings of various sizes.\nIntended to be used together with the Client-Paintings mod by Enjarai.",
+	"authors": [
+		"Estecka"
+	],
+	"contact": {
+		"client-paintings": "https://modrinth.com/mod/client-paintings",
+		"homepage": "https://modrinth.com/mod/more-canvases",
+		"sources": "https://github.com/Estecka/mc-more-canvases"
+	},
+
+	"icon": "assets/mocan/icon.png",
+
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.fabricmc.morecanvases.MoCan"
+		]
+	},
+
+	"depends": {
+		"fabricloader": ">=0.14.19",
+		"fabric-api": "*",
+		"minecraft": "~1.19.4",
+		"java": ">=17"
+	},
+	"suggests": {
+		"client-paintings": "~1.2.0"
+	}
+}
