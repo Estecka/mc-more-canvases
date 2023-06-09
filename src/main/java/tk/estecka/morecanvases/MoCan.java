@@ -14,23 +14,33 @@ import org.slf4j.LoggerFactory;
 public class MoCan implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("MoCan");
 
-	public static final int	width_min = 1;
-	public static final int	width_max = 4;
-	public static final int	height_min = 1;
-	public static final int	height_max = 4;
+	public static final SimpleConfig config = SimpleConfig.of("More-Canvases").provider(MoCan::DefaultConfig).request();
+	public static final int	width_min  = config.getOrDefault("width.min",  1);
+	public static final int	width_max  = config.getOrDefault("width.max",  4);
+	public static final int	height_min = config.getOrDefault("height.min", 1);
+	public static final int	height_max = config.getOrDefault("height.max", 4);
 
 	@Override
 	public void onInitialize() {
-		LOGGER.debug("Registering painting sizes [", width_min, ", ", width_max, "] to [", height_min, ", ", height_max,"]");
+		LOGGER.info("Generating painting sizes from [{}, {}] to [{}, {}]", width_min, height_min, width_max, height_max);
 		for (int x=width_min ; x<=width_max ; x++)
 		for (int y=height_min; y<=height_max; y++)
 			Register(x, y);
 	}
 	
-	public static RegistryKey<PaintingVariant> Register(int x, int y){
+	static private RegistryKey<PaintingVariant>	Register(int x, int y){
 		RegistryKey<PaintingVariant> key = RegistryKey.of(RegistryKeys.PAINTING_VARIANT, new Identifier("mocan", "blank"+x+"x"+y));
 		Registry.register(Registries.PAINTING_VARIANT, key, new PaintingVariant(x*16, y*16));
 		return key;
+	}
+
+	static private String	DefaultConfig(String filename){
+		return """
+		width.min=1
+		width.max=4
+		height.min=1
+		height.max=4
+		""";
 	}
 
 }
