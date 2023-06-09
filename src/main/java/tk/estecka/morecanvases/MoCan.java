@@ -23,6 +23,14 @@ public class MoCan implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Generating painting sizes from [{}, {}] to [{}, {}]", width_min, height_min, width_max, height_max);
+
+		if (width_max < width_min)
+			LOGGER.error("Width min is greater than width max, no paintings will be generated.");
+		if (height_max < height_min)
+			LOGGER.error("Height min is greater than height max, no paintings will be generated.");
+		if (width_max > 16 || height_max > 16)
+			LOGGER.warn("Painting dimensions are suspiciously high. Did you configure the mod properly ?");
+
 		for (int x=width_min ; x<=width_max ; x++)
 		for (int y=height_min; y<=height_max; y++)
 			Register(x, y);
