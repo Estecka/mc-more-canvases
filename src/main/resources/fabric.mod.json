@@ -19,7 +19,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.fabricmc.morecanvases.MoCan"
+			"tk.estecka.morecanvases.MoCan"
 		]
 	},
 

@@ -1,4 +1,4 @@
-package net.fabricmc.morecanvases;
+package tk.estecka.morecanvases;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.entity.decoration.painting.PaintingVariant;
