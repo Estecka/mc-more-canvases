@@ -24,6 +24,6 @@ Most generated paintings will have a missing texture. This won't be worked on, s
 
 ##	Versions
 
-- Minecraft 1.19.4
-- Fabric Loader 0.14.19 or above
-- Fabric API 0.79.0 or above
+- Minecraft 1.20.0
+- Fabric Loader 0.14.21 or above
+- Fabric API 0.83.0 or above
