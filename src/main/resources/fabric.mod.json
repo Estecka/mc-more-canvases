@@ -13,6 +13,7 @@
 		"homepage": "https://modrinth.com/mod/more-canvases",
 		"sources": "https://github.com/Estecka/mc-more-canvases"
 	},
+	"license": "GNU AGPLv3",
 
 	"icon": "assets/mocan/icon.png",
 
